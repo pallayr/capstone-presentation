@@ -61,28 +61,14 @@
 					</section>
 					<section>
 						<img class="audio" onload="Snd.boom()" src="img/fraud-squad.jpeg" height="30%" alt="Fraud"/>
+					<audio id="audiotag" src="audio/police.mp3" preload="auto" onclick="javascript:play_single_sound()"></audio>
 					</section>
 					
 					<script type="text/javascript">
-					var Snd = {
-  init: function() {
-    $(".audio").each(function() {
-      var src = this.getAttribute('src');
-      if (src.substring(0, 4) !== "snd/") { return; }
-      // Cut out the basename (strip directory and extension)
-      var name = src.substring(4, src.length - 4);
-      // Create the helper function, which clones the audio object and plays it
-      var Constructor = function() {};
-      Constructor.prototype = this;
-      Snd[name] = function() {
-        var clone = new Constructor();
-        clone.play();
-        // Return the cloned element, so the caller can interrupt the sound effect
-        return clone;
-      };
-    });
-  }
-};
+<script type="text/javascript">
+	function play_single_sound() {
+		document.getElementById('audiotag').play();
+	}
 </script>
 					
 					<section>
